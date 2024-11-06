@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { LanguageContext } from "../../../utility/LanguageContext"; // Import context
 import Home from "../../../assets/home/cover.png";
@@ -11,6 +11,7 @@ import "./home.css";
 
 const HomePage = () => {
   const { language, toggleLanguage } = useContext(LanguageContext); // Access language context
+  const [isLoading, setIsLoading] = useState(true); // State for managing loading
 
   // Translations for both languages
   const texts = {
@@ -49,65 +50,92 @@ const HomePage = () => {
     document.documentElement.classList.toggle('ltr', language === 'en');
   }, [language]);
 
+  // Simulate loading process with a delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // After 0.5s, hide the loader
+    }, 500); // 0.5 seconds delay
+
+    return () => clearTimeout(timer); // Cleanup timer on component unmount
+  }, []);
+
   return (
     <div id="home" className="home-page">
-      <div className="home-page-min">
-        <div className="welcome-container-min">
-          <motion.h2
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {currentText.heading}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {currentText.description}
-          </motion.p>
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {currentText.subheading}
-          </motion.h3>
-          <br />
-          <h4>{currentText.appsTitle}</h4>
-          <ul className="app-links">
-            <motion.li
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+      {isLoading ? (
+        // Loader Animation
+        <motion.div
+          className="loader-container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="loader">Loading...</div>
+        </motion.div>
+      ) : (
+        // Home Page Content after loading
+        <motion.div
+          className="home-page-min"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="welcome-container-min">
+            <motion.h2
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {currentText.heading}
+            </motion.h2>
+            <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="app-link-min">{currentText.googlePlay}</button>
-            </motion.li>
-            <motion.li
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              {currentText.description}
+            </motion.p>
+            <motion.h3
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <button className="app-link-min">{currentText.appStore}</button>
-            </motion.li>
-          </ul>
-        </div>
-        <div className="image-container-min">
-          <motion.img
-            src={Home}
-            alt="Welcome"
-            loading="lazy"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          />
-        </div>
-      </div>
+              {currentText.subheading}
+            </motion.h3>
+            <br />
+            <h4>{currentText.appsTitle}</h4>
+            <ul className="app-links">
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <button className="app-link-min">{currentText.googlePlay}</button>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <button className="app-link-min">{currentText.appStore}</button>
+              </motion.li>
+            </ul>
+          </div>
+          <div className="image-container-min">
+            <motion.img
+              src={Home}
+              alt="Welcome"
+              loading="lazy"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            />
+          </div>
+        </motion.div>
+      )}
       <div className="about-container-min">
         <div>
           <ul className="about-content-min">

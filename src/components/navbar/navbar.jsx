@@ -24,7 +24,7 @@ const Navbar = () => {
     document.documentElement.classList.toggle('ltr', newLanguage === 'en');
     
     // Optionally, you can force page reload or other dynamic behavior if needed
-    // window.location.reload(); // You can comment this if you prefer not to reload
+    window.location.reload(); // Page reload (will reset to homepage)
   };
 
   useEffect(() => {
@@ -44,6 +44,15 @@ const Navbar = () => {
     }));
   };
 
+  // Custom function to reload page on link click
+  const handleLinkClick = (event) => {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Get the current link href and reload the page at that URL
+    const targetUrl = event.target.getAttribute('href');
+    window.location.href = targetUrl; // Reload page at the current URL
+  };
+
   const renderLinks = () => (
     <ul className="links">
       {/* Language toggle button */}
@@ -52,9 +61,9 @@ const Navbar = () => {
           {language === 'en' ? 'AR' : 'EN'}
         </button>
       </li>
-      <li><Link to="/services">{language === 'en' ? 'Services' : 'الخدمات'}</Link></li>
-      <li><Link to="/driver">{language === 'en' ? 'Driver' : 'السائق'}</Link></li>
-      <li><Link to="/terms-and-conditions">{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link></li>
+      <li><Link to="/services" onClick={handleLinkClick}>{language === 'en' ? 'Services' : 'الخدمات'}</Link></li>
+      <li><Link to="/driver" onClick={handleLinkClick}>{language === 'en' ? 'Driver' : 'السائق'}</Link></li>
+      <li><Link to="/terms-and-conditions" onClick={handleLinkClick}>{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link></li>
       <li><button className="signup-driver-min">{language === 'en' ? 'Signup as Driver' : 'التسجيل كسائق'}</button></li>
     </ul>
   );

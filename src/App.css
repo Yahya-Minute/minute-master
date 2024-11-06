@@ -77,19 +77,17 @@ p {
   font-family: var(--heebo);
   font-weight: 400;
 }
-body{
-  font-family: 'Josefin Sans', sans-serif;
-}
 
 
 /* language page formatter */
 .rtl {
   direction: rtl;
   text-align: right;
+  font-family: 'Noto Kufi Arabic', sans-serif;
 }
 
 .ltr {
   direction: ltr;
   text-align: left;
-  font-family: 'Noto Kufi Arabic', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
