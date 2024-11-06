@@ -1,0 +1,143 @@
+/* Base styles for both navbars */
+.navbar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    left: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    z-index: 20;
+    overflow-x: hidden;
+    transition: top 0.5s ease; 
+}
+
+.navbar-top {
+    top: 0;
+    box-shadow: none; 
+}
+
+.navbar-scroll {
+    position: fixed;
+    top: -120px; 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for the scroll navbar */
+}
+
+.navbar-scroll.navbar-visible {
+    top: 0; /* Show on scroll */
+}
+
+.links-container-min {
+    display: flex;
+    width: 60%;
+    padding: 5px 30px;
+}
+
+/* Navbar Links */
+.links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.links li {
+    list-style-type: none;
+    font-size: larger;
+    padding: 0 10px;
+    font-weight: 700;
+    color: black;
+    cursor: pointer;
+    transition: ease-in-out 0.3s color;
+    &hover{
+        color: var(--gradient-blue)
+    }
+}
+
+.logo-min-image {
+    width: 90px;
+    height: 50px;
+    padding: 10px;
+}
+
+button.signup-driver-min {
+    border: none;
+    border-radius: 50px;
+    width: auto;
+    padding: 10px;
+    font-weight: 600;
+    height: 50px;
+    background: var(--gradient-blue);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile menu button */
+.menu-button {
+    display: none;
+}
+
+/* Responsive Styles for Tablet and Mobile */
+@media (max-width: 768px) {
+    .links-container-min {
+        display: none; /* Hide links on mobile */
+    }
+
+    /* Menu button for mobile view */
+    .menu-button {
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+        background: transparent;
+        border: none;
+        z-index: 20;
+        color: var(--gradient-blue);
+        cursor: pointer;
+    }
+    
+    /* Pop-up menu for mobile */
+    .links-container-mobile {
+        display: flex;
+        position: absolute;
+        top: 60px; /* Adjust to position below navbar */
+        right: 0;
+        background-color: white;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        transition: all 0.3s ease;
+        visibility: hidden; /* Hidden by default */
+        opacity: 0; /* Start with invisible */
+        transform: translateY(-10px); /* Add subtle entrance effect */
+    }
+
+    .links-container-mobile.show {
+        visibility: visible; /* Show when toggled */
+        opacity: 1; /* Fade in */
+        transform: translateY(0); /* Move into place */
+    }
+
+    .links-container-mobile li {
+        padding: 10px 0;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Adjustments for iPad (tablet) view */
+    .logo-min-image {
+        width: 80px;
+        height: 45px;
+    }
+
+    button.signup-driver-min {
+        width: 150px;
+        height: 45px;
+        font-size: 18px;
+    }
+}

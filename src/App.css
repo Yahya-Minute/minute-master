@@ -1,0 +1,74 @@
+.App{
+  /* padding: 0px 50px; */
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  /* background-color: black; */
+}
+.image-back{
+  width: 100%;
+  height: auto;
+  top:0;
+  z-index: -20;
+  position: fixed;
+  left:0;
+}
+:root {
+  --light-orange: #4850a1;
+  --deep-orange: #f29d1e;
+  --gradient-blue: linear-gradient(#4850a1, #353b7e);
+  --gradient-orange: linear-gradient(#f29d1e, #cf8516);
+  --dark: #061738;
+  --grey: #606060;
+  --white: #fff;
+  --josefin: 'Josefin Sans', sans-serif;
+  --heebo: 'Heebo', sans-serif;
+}
+
+
+/* Heading sizes */
+h1 {
+  font-size: calc(60px + 1vw);
+  line-height: 60px;
+  color: var(--dark);
+}
+h2 {
+  font-size: calc(40px + 1vw);
+  line-height: 60px;
+}
+h3 {
+  font-size: calc(28px + 1vw);
+  line-height: 20px;
+}
+h4 {
+  font-size: calc(20px + 1vw);
+  line-height: 15px;
+}
+h5 {
+  font-size: 24px;
+}
+h6 {
+  font-size: 20px;
+  line-height: 10px;
+}
+
+/* Paragraph text */
+p {
+  font-size: 16px;
+  line-height: 26px;
+  font-family: var(--heebo);
+  font-weight: 400;
+}
+
+
+
+/* language page formatter*/
+.rtl {
+  direction: rtl;
+  text-align: right; 
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
