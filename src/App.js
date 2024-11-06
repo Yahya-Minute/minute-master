@@ -10,6 +10,7 @@ import Background from './assets/background/video-bg.jpg';
 import Driver from './components/pages/driver/driver';
 import Contact from './components/pages/contact/contact';
 import Services from './components/pages/services/services';
+import TermsAndConditions from './components/pages/termsandconditions/termsandconditions';
 
 
 
@@ -17,7 +18,7 @@ function App() {
   return (
       <div className="App">
         <img src={Background} alt='background-img' className='image-back' />
-        {/* <Loader /> */}
+        <Loader />
         <Cursor />
         <Navbar />
         
@@ -26,7 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/driver" element={<Driver />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                           
           </Routes>
         </div>

@@ -1,18 +1,26 @@
-.App{
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap');
+
+/* App styles */
+.App {
   /* padding: 0px 50px; */
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
   /* background-color: black; */
 }
-.image-back{
+
+.image-back {
   width: 100%;
   height: auto;
-  top:0;
+  top: 0;
   z-index: -20;
   position: fixed;
-  left:0;
+  left: 0;
 }
+
 :root {
   --light-orange: #4850a1;
   --deep-orange: #f29d1e;
@@ -25,31 +33,41 @@
   --heebo: 'Heebo', sans-serif;
 }
 
-
 /* Heading sizes */
 h1 {
   font-size: calc(60px + 1vw);
   line-height: 60px;
   color: var(--dark);
+  font-family: var(--josefin);
 }
+
 h2 {
   font-size: calc(40px + 1vw);
   line-height: 60px;
+  font-family: var(--josefin);
 }
+
 h3 {
   font-size: calc(28px + 1vw);
   line-height: 20px;
+  font-family: var(--josefin);
 }
+
 h4 {
   font-size: calc(20px + 1vw);
   line-height: 15px;
+  font-family: var(--josefin);
 }
+
 h5 {
   font-size: 24px;
+  font-family: var(--josefin);
 }
+
 h6 {
   font-size: 20px;
   line-height: 10px;
+  font-family: var(--josefin);
 }
 
 /* Paragraph text */
@@ -59,16 +77,19 @@ p {
   font-family: var(--heebo);
   font-weight: 400;
 }
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
 
 
-
-/* language page formatter*/
+/* language page formatter */
 .rtl {
   direction: rtl;
-  text-align: right; 
+  text-align: right;
 }
 
 .ltr {
   direction: ltr;
   text-align: left;
+  font-family: 'Noto Kufi Arabic', sans-serif;
 }

@@ -4,8 +4,28 @@ import Logo from '../../assets/logo/logo.png';
 import './navbar.css';
 
 const Navbar = () => {
+  // Check localStorage for stored language on initial load, default is 'en'
+  const storedLanguage = localStorage.getItem('language') || 'en';
+  const [language, setLanguage] = useState(storedLanguage);
+
   const [isVisible, setIsVisible] = useState(false); // Track if scroll navbar should be visible
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState({ top: false, scroll: false }); // Track both menus in a single state
+
+  // Toggle language and apply RTL/LTR classes
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'ar' : 'en';
+    setLanguage(newLanguage);
+
+    // Store language in localStorage
+    localStorage.setItem('language', newLanguage);
+
+    // Change body class based on language
+    document.documentElement.classList.toggle('rtl', newLanguage === 'ar');
+    document.documentElement.classList.toggle('ltr', newLanguage === 'en');
+    
+    // Optionally, you can force page reload or other dynamic behavior if needed
+    // window.location.reload(); // You can comment this if you prefer not to reload
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,12 +46,16 @@ const Navbar = () => {
 
   const renderLinks = () => (
     <ul className="links">
-      {/* Removed the 'Logo' text link */}
-      <li><Link to="/language">AR/EN</Link></li>
-      <li><Link to="/services">Services</Link></li>
-      <li><Link to="/driver">Driver</Link></li>
-      <li><Link to="/contact">Contact</Link></li>
-      <li><button className="signup-driver-min">Signup as Driver</button></li>
+      {/* Language toggle button */}
+      <li>
+        <button onClick={toggleLanguage} className="language-toggle-button">
+          {language === 'en' ? 'AR' : 'EN'}
+        </button>
+      </li>
+      <li><Link to="/services">{language === 'en' ? 'Services' : 'الخدمات'}</Link></li>
+      <li><Link to="/driver">{language === 'en' ? 'Driver' : 'السائق'}</Link></li>
+      <li><Link to="/terms-and-conditions">{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link></li>
+      <li><button className="signup-driver-min">{language === 'en' ? 'Signup as Driver' : 'التسجيل كسائق'}</button></li>
     </ul>
   );
 
