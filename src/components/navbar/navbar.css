@@ -1,119 +1,96 @@
 /* Base styles for both navbars */
 .navbar {
     display: flex;
-    position: relative;
     width: 100%;
-    left: 0;
     justify-content: space-around;
     align-items: center;
     background-color: white;
     z-index: 20;
-    overflow-x: hidden;
-    transition: top 0.5s ease; 
+    transition: top 0.5s ease;
+    padding: 10px 20px;
 }
 
+/* Top Navbar */
 .navbar-top {
+    position: relative;
     top: 0;
-    box-shadow: none; 
+    box-shadow: none;
 }
 
+/* Scrolling Navbar */
 .navbar-scroll {
     position: fixed;
-    top: -120px; 
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for the scroll navbar */
+    top: -100px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Navbar Visibility */
 .navbar-scroll.navbar-visible {
-    top: 0; /* Show on scroll */
+    top: 0;
 }
 
+/* Link Container for Desktop */
 .links-container-min {
     display: flex;
-    width: 60%;
-    padding: 5px 10px;
-
+    gap: 40px;
 }
 
-/* Navbar Links */
+/* RTL Adjustment: Reverse Link Container Order */
+.rtl .links-container-min {
+    flex-direction: row-reverse;
+}
+
+/* Links styling */
 .links {
     display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .links li {
     list-style-type: none;
-    font-size: larger;
-    padding: 0 10px;
+    font-size: 1rem;
     font-weight: 700;
-    color: black;
-    cursor: pointer;
-    transition: ease-in-out 0.3s color;
-    &hover{
-        color: var(--gradient-blue)
-    }
-    a{
-        text-decoration: none ;
-        color: black;
-    }
-    .selected{
-        color: var(--deep-orange)
-    }
-    &hover{
-        color: var(--deep-orange)
-    }
 }
 
-.logo-min-image {
-    width: 80px;
-    height: 50px;
-    padding: 10px;
-}
-
-button.signup-driver-min {
+/* Language Toggle */
+.language-toggle-button {
+    background: none;
     border: none;
-    border-radius: 50px;
-    width: auto;
-    padding: 10px;
-    font-weight: 600;
-    height: 50px;
-    background: var(--gradient-blue);
-    color: white;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
-/* Mobile menu button */
+/* Logo */
+.logo-min-image {
+    width:105px;
+    height: 70px;
+}
+
+/* Menu Button for Mobile */
 .menu-button {
     display: none;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* Responsive Styles for Tablet and Mobile */
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
     .links-container-min {
-        display: none; /* Hide links on mobile */
+        display: none;
     }
 
-    /* Menu button for mobile view */
     .menu-button {
-        display: flex;
-        flex-direction: column;
-        font-size: 24px;
-        background: transparent;
-        border: none;
-        z-index: 20;
-        color: var(--gradient-blue);
-        cursor: pointer;
+        display: block;
     }
-    
-    /* Pop-up menu for mobile */
+
     .links-container-mobile {
         display: flex;
         position: absolute;
-        top: 60px; /* Adjust to position below navbar */
+        top: 60px;
         right: 0;
         background-color: white;
         width: 100%;
@@ -121,34 +98,30 @@ button.signup-driver-min {
         align-items: center;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
         padding: 10px 0;
-        transition: all 0.3s ease;
-        visibility: hidden; /* Hidden by default */
-        opacity: 0; /* Start with invisible */
-        transform: translateY(-10px); /* Add subtle entrance effect */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
     }
 
-    .links-container-mobile.show {
-        visibility: visible; /* Show when toggled */
-        opacity: 1; /* Fade in */
-        transform: translateY(0); /* Move into place */
+    /* RTL Adjustment: Mobile Navbar opens from the left */
+    .rtl .links-container-mobile {
+        right: auto;
+        left: 0;
+    }
+
+    .navbar.open .links-container-mobile {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .links-container-mobile li {
         padding: 10px 0;
         font-size: 18px;
     }
-}
-
-@media (max-width: 1024px) {
-    /* Adjustments for iPad (tablet) view */
-    .logo-min-image {
-        width: 80px;
-        height: 45px;
-    }
-
-    button.signup-driver-min {
-        width: 150px;
-        height: 45px;
-        font-size: 18px;
+    .rtl .navbar{
+            flex-direction: row-reverse;
+        
     }
 }

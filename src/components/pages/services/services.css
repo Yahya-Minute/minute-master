@@ -1,44 +1,177 @@
-/* services.css */
+:root {
+  --light-orange: #4850a1;
+  --deep-orange: #f29d1e;
+  --light-gray: #f5f5f5;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
 .services-page {
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
+  position: relative;
+  padding: 2rem;
+  background-color: white;
+  color: #333;
+  h1{
+    margin: 10px;
   }
-  
-  .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+  p{
+    font-size: large;
   }
-  
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-item {
+  position: relative; /* Required for clock background positioning */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-orange);
+  color: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 50px;
+  box-shadow: 0px 4px 15px var(--shadow-color);
+  transition: transform 0.3s ease;
+  margin-left: 100px;
+  overflow: hidden;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 6px solid var(--deep-orange);
+  border-style: dashed;
+  background-color: white;
+  top: -50px; /* Adjust the positioning as needed */
+  left: -50px; /* Adjust the positioning as needed */
+  opacity: 0.2; /* Set opacity for background effect */
+  z-index: 1; /* Position behind text */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.service-content,
+.service-icon {
+  position: relative;
+  z-index: 2; /* Keep content above the clock */
+}
+
+h3 {
+  color: white;
+}
+
+.service-item:nth-child(even) {
+  background-color: var(--deep-orange);
+  border: 2px solid var(--light-orange);
+  margin-right: 200px;
+  border:#4850a1;
+  flex-direction: row-reverse;
+}
+
+
+.service-item:hover {
+  transform: scale(1.05);
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.service-icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+/* Testimonials Styles */
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 2rem;
+  /* background: var(--gradient-blue); */
+  padding: 2rem;
+  border-radius: 20px;
+  h2{
+    color: black
+  }
+}
+
+.testimonials-carousel {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.testimonial-item {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px var(--shadow-color);
+  color: #333;
+  width: 100%;
+  max-width: 800px;
+}
+
+.testimonial-item img {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  margin-right: 1.5rem;
+}
+
+.testimonial-content {
+  text-align: left;
+}
+
+.testimonial-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.testimonial-content h4 {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
   .service-item {
-    padding: 1.5rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
+    flex-direction: column;
   }
-  
-  .service-item:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+  .testimonials-container {
+    flex-direction: column;
   }
-  
-  .service-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+
+  .testimonial-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+
+  .testimonial-item img {
+    margin: 0 0 1rem 0;
   }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
-  }
-  
-  p {
-    color: #666;
-  }
-  
+}

@@ -3,6 +3,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap');
 
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap');
+  font-weight: normal;
+  font-style: normal;
+}
+html[lang="en"] {
+  direction: ltr;
+}
+
+html[lang="ar"] {
+  direction: rtl;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+
 /* App styles */
 .App {
   /* padding: 0px 50px; */
@@ -31,63 +48,64 @@
   --white: #fff;
   --josefin: 'Josefin Sans', sans-serif;
   --heebo: 'Heebo', sans-serif;
+  --arabic: 'Noto Kufi Arabic', sans-serif;
 }
-
+h1, h2, h3, h4, h5{
+  color: var(black);
+}
 /* Heading sizes */
 h1 {
-  font-size: calc(60px + 1vw);
+  font-size: calc(36px + 1vw);
   line-height: 60px;
   color: var(--dark);
-  font-family: var(--josefin);
 }
 
 h2 {
-  font-size: calc(40px + 1vw);
-  line-height: 60px;
-  font-family: var(--josefin);
+  font-size: calc(36px + 1vw);
+  line-height: 40px;
 }
 
 h3 {
   font-size: calc(28px + 1vw);
   line-height: 20px;
-  font-family: var(--josefin);
 }
 
 h4 {
   font-size: calc(20px + 1vw);
   line-height: 15px;
-  font-family: var(--josefin);
 }
 
 h5 {
   font-size: 24px;
-  font-family: var(--josefin);
+  line-height: 10px;
 }
 
 h6 {
   font-size: 20px;
   line-height: 10px;
-  font-family: var(--josefin);
 }
 
 /* Paragraph text */
 p {
   font-size: 16px;
   line-height: 26px;
-  font-family: var(--heebo);
   font-weight: 400;
 }
 
 
 /* language page formatter */
+/* Apply the Arabic font to all text in RTL mode */
 .rtl {
   direction: rtl;
   text-align: right;
   font-family: 'Noto Kufi Arabic', sans-serif;
+  font-display: swap;
 }
 
 .ltr {
   direction: ltr;
   text-align: left;
   font-family: 'Josefin Sans', sans-serif;
+  font-display: swap;
 }
+

@@ -16,20 +16,24 @@ const HomePage = () => {
   // Translations for both languages
   const texts = {
     en: {
-      heading: "With us, a minute makes a difference, and you arrive safely on time",
-      description: "Designed to save time, earn rewards, and ensure you reach your destination safely. Your trip is just a click away — tap to enjoy the ride.",
+      heading:
+        "With us, a minute makes a difference, and you arrive safely on time",
+      description:
+        "Designed to save time, earn rewards, and ensure you reach your destination safely. Your trip is just a click away — tap to enjoy the ride.",
       subheading: "Minute Makes a Difference",
       appsTitle: "Get Apps",
       googlePlay: "Google Play",
       appStore: "App Store",
       feature1: "The easiest to use",
-      feature1Description: "We designed it to be easy to use and quick to order",
+      feature1Description:
+        "We designed it to be easy to use and quick to order",
       getApp: "Get the App",
       downloadApp: "Download the app now and get started",
     },
     ar: {
       heading: "معنا، دقيقة تحدث فرقًا، وتصل بأمان في الوقت المحدد",
-      description: "تم تصميمه لتوفير الوقت، وكسب المكافآت، وضمان وصولك إلى وجهتك بأمان. رحلتك على بعد نقرة واحدة — انقر للاستمتاع بالرحلة.",
+      description:
+        "تم تصميمه لتوفير الوقت، وكسب المكافآت، وضمان وصولك إلى وجهتك بأمان. رحلتك على بعد نقرة واحدة — انقر للاستمتاع بالرحلة.",
       subheading: "الدقيقة تحدث فرقًا",
       appsTitle: "احصل على التطبيقات",
       googlePlay: "جوجل بلاي",
@@ -46,8 +50,8 @@ const HomePage = () => {
   // Effect to change direction (rtl/ltr) on language change
   useEffect(() => {
     // Apply RTL/LTR based on selected language
-    document.documentElement.classList.toggle('rtl', language === 'ar');
-    document.documentElement.classList.toggle('ltr', language === 'en');
+    document.documentElement.classList.toggle("rtl", language === "ar");
+    document.documentElement.classList.toggle("ltr", language === "en");
   }, [language]);
 
   // Simulate loading process with a delay
@@ -60,10 +64,16 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div id="home" className="home-page">
+    <div id="home" className="home-page" style={{
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
+      backgroundSize: '230%', // Scale up to show only a part
+      backgroundPosition: 'top left', // Position at top left
+      backgroundRepeat: 'no-repeat',
+    }}>
       {isLoading ? (
         // Loader Animation
         <motion.div
+        
           className="loader-container"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -74,30 +84,31 @@ const HomePage = () => {
       ) : (
         // Home Page Content after loading
         <motion.div
+        
           className="home-page-min"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           <div className="welcome-container-min">
-            <motion.h2
-              initial={{ opacity: 0, y: -10 }}
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 1 }}
             >
               {currentText.heading}
-            </motion.h2>
+            </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
               {currentText.description}
             </motion.p>
             <motion.h3
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
               {currentText.subheading}
             </motion.h3>
@@ -109,16 +120,18 @@ const HomePage = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 1, delay: 0.6 }}
               >
-                <button className="app-link-min">{currentText.googlePlay}</button>
+                <button className="app-link-min">
+                  {currentText.googlePlay}
+                </button>
               </motion.li>
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
+                transition={{ duration: 1, delay: 0.5 }}
               >
                 <button className="app-link-min">{currentText.appStore}</button>
               </motion.li>
@@ -129,9 +142,10 @@ const HomePage = () => {
               src={Home}
               alt="Welcome"
               loading="lazy"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, x: language === "ar" ? -100 : 100 }} // Change start position based on language
+              animate={{ opacity: 1, x: 0 }} // Animate to the center
+              transition={{ duration: 1 }}
+              style={{ maxWidth: "100%", height: "auto" }}
             />
           </div>
         </motion.div>
@@ -183,6 +197,10 @@ const HomePage = () => {
               {currentText.getApp}
             </motion.h4>
             <motion.p
+              style={{
+                fontFamily:
+                  language === "ar" ? "Noto Kufi Arabic" : "Josefin Sans",
+              }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}

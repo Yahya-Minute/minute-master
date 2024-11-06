@@ -1,106 +1,116 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';  // Import NavLink
 import Logo from '../../assets/logo/logo.png';
 import './navbar.css';
+import Loader from '../../utility/loader/loader';
 
 const Navbar = () => {
-  // Check localStorage for stored language on initial load, default is 'en'
   const storedLanguage = localStorage.getItem('language') || 'en';
   const [language, setLanguage] = useState(storedLanguage);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
 
-  const [isVisible, setIsVisible] = useState(false); // Track if scroll navbar should be visible
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState({ top: false, scroll: false }); // Track both menus in a single state
+  useEffect(() => {
+    // Set direction and CSS class based on language
+    const direction = language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('dir', direction);
+    document.documentElement.classList.toggle('rtl', language === 'ar');
+    document.documentElement.classList.toggle('ltr', language === 'en');
+  }, [language]);
 
-  // Toggle language and apply RTL/LTR classes
   const toggleLanguage = () => {
-    const newLanguage = language === 'en' ? 'ar' : 'en';
-    setLanguage(newLanguage);
+    setShowLoader(true);
+    setTimeout(() => {
+      const newLanguage = language === 'en' ? 'ar' : 'en';
+      setLanguage(newLanguage);
+      localStorage.setItem('language', newLanguage);
+      window.location.reload(); // Reload to reapply language changes
+    }, 100);
+  };
 
-    // Store language in localStorage
-    localStorage.setItem('language', newLanguage);
-
-    // Change body class based on language
-    document.documentElement.classList.toggle('rtl', newLanguage === 'ar');
-    document.documentElement.classList.toggle('ltr', newLanguage === 'en');
-    
-    // Optionally, you can force page reload or other dynamic behavior if needed
-    window.location.reload(); // Page reload (will reset to homepage)
+  const reloadPage = () => {
+    setShowLoader(true);
+    setTimeout(() => {
+      window.location.reload(); // Trigger reload on link click
+    }, 100);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY + 100 > 400);
+      setIsVisible(window.scrollY > 100);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Toggle mobile menu for specific navbar (top or scroll)
-  const toggleMobileMenu = (menuType) => {
-    setIsMobileMenuOpen((prevState) => ({
-      top: menuType === 'top' ? !prevState.top : false,
-      scroll: menuType === 'scroll' ? !prevState.scroll : false,
-    }));
-  };
-
-  // Custom function to reload page on link click
-  const handleLinkClick = (event) => {
-    event.preventDefault(); // Prevent default link behavior
-
-    // Get the current link href and reload the page at that URL
-    const targetUrl = event.target.getAttribute('href');
-    window.location.href = targetUrl; // Reload page at the current URL
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const renderLinks = () => (
-    <ul className="links">
-      {/* Language toggle button */}
+    <ul className={`links ${language}`}>
       <li>
         <button onClick={toggleLanguage} className="language-toggle-button">
           {language === 'en' ? 'AR' : 'EN'}
         </button>
       </li>
-      <li><Link to="/services" onClick={handleLinkClick}>{language === 'en' ? 'Services' : 'الخدمات'}</Link></li>
-      <li><Link to="/driver" onClick={handleLinkClick}>{language === 'en' ? 'Driver' : 'السائق'}</Link></li>
-      <li><Link to="/terms-and-conditions" onClick={handleLinkClick}>{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link></li>
+      <li>
+        <NavLink 
+          to="/services" 
+          activeClassName="active-link" 
+          onClick={reloadPage}
+        >
+          {language === 'en' ? 'Services' : 'الخدمات'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+          to="/driver" 
+          activeClassName="active-link" 
+          onClick={reloadPage}
+        >
+          {language === 'en' ? 'Driver' : 'السائق'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+          to="/terms-and-conditions" 
+          activeClassName="active-link" 
+          onClick={reloadPage}
+        >
+          {language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}
+        </NavLink>
+      </li>
     </ul>
-  );
-
-  const renderMobileLinks = (menuType) => (
-    <div className="links-container-mobile">
-      {renderLinks().props.children.map((item, index) => (
-        <li key={index} onClick={() => toggleMobileMenu(menuType)}>{item}</li>
-      ))}
-    </div>
   );
 
   return (
     <>
-      {/* Initial top navbar */}
-      <div className="navbar navbar-top">
+      {showLoader && <Loader />}
+
+      {/* Navbar Top */}
+      <div className={`navbar navbar-top ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="logo-min">
-          {/* Wrap logo with Link for home navigation */}
-          <Link to="/">
+          <NavLink to="/" onClick={reloadPage}>
             <img src={Logo} alt="Logo" className="logo-min-image" />
-          </Link>
+          </NavLink>
         </div>
         <div className="links-container-min">{renderLinks()}</div>
-        <button className="menu-button" onClick={() => toggleMobileMenu('top')}>☰</button>
-        {isMobileMenuOpen.top && renderMobileLinks('top')}
+        <button className="menu-button" onClick={toggleMobileMenu}>☰</button>
+        {isMobileMenuOpen && <div className="links-container-mobile">{renderLinks()}</div>}
       </div>
 
-      {/* Scroll navbar that appears on scroll */}
+      {/* Scroll Navbar */}
       <div className={`navbar navbar-scroll ${isVisible ? 'navbar-visible' : ''}`}>
         <div className="logo-min">
-          {/* Wrap logo with Link for home navigation */}
-          <Link to="/">
+          <NavLink to="/" onClick={reloadPage}>
             <img src={Logo} alt="Logo" className="logo-min-image" />
-          </Link>
+          </NavLink>
         </div>
         <div className="links-container-min">{renderLinks()}</div>
-        <button className="menu-button" onClick={() => toggleMobileMenu('scroll')}>☰</button>
-        {isMobileMenuOpen.scroll && renderMobileLinks('scroll')}
+        <button className="menu-button" onClick={toggleMobileMenu}>☰</button>
+        {isMobileMenuOpen && <div className="links-container-mobile">{renderLinks()}</div>}
       </div>
     </>
   );

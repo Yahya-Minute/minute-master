@@ -2,6 +2,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  
 }
 
 
@@ -14,6 +15,11 @@ html, body {
   background: white;
   margin-bottom: 300px;
   padding: 0 50px;
+  h3{
+
+    color: var(--gradient-blue);
+    font-style: oblique;
+  }
 }
 
 .home-page-min {
@@ -25,7 +31,10 @@ html, body {
 }
 
 /* Reverse flex for RTL layouts */
-.rtl .home-page-min {
+/* Reverse directions in RTL */
+.rtl .home-page-min, 
+.rtl .about-container-min, 
+.rtl .app-container-min {
   flex-direction: row-reverse;
 }
 
@@ -71,7 +80,6 @@ html, body {
 
 .about-container-min {
   width: 80%;
-  height: 100vh;
   margin-bottom: 300px;
   margin-top: 200px;
   display: flex;
@@ -85,20 +93,26 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  justify-content: center
 }
 
 .about-content-min li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 0;
+  margin: 0;
+  h5{
+    margin: 20px;
+  }
+  p{
+    margin: 10px;
+  }
 }
 
 .about-content-min li img {
   display: flex;
-  width: 100px;
+  width:120px;
 }
 
 .iphone-content-min img {
@@ -144,7 +158,7 @@ html, body {
 .app-content-min ul {
   display: flex;
   gap: 20px;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
