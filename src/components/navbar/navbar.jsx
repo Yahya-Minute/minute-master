@@ -64,7 +64,6 @@ const Navbar = () => {
       <li><Link to="/services" onClick={handleLinkClick}>{language === 'en' ? 'Services' : 'الخدمات'}</Link></li>
       <li><Link to="/driver" onClick={handleLinkClick}>{language === 'en' ? 'Driver' : 'السائق'}</Link></li>
       <li><Link to="/terms-and-conditions" onClick={handleLinkClick}>{language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}</Link></li>
-      <li><button className="signup-driver-min">{language === 'en' ? 'Signup as Driver' : 'التسجيل كسائق'}</button></li>
     </ul>
   );
 

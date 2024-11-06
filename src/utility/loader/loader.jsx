@@ -9,11 +9,11 @@ const Loader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true); // Trigger fade-out effect
-    }, 3000);
+    }, 1000);
 
     const removeLoader = setTimeout(() => {
       setIsLoading(false); // Hide the loader after fade-out transition
-    }, 4000); // Make sure to hide the loader after the fade-out
+    }, 1500); // Make sure to hide the loader after the fade-out
 
     // Clean up the timers on component unmount
     return () => {

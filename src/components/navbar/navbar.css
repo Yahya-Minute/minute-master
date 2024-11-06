@@ -30,7 +30,8 @@
 .links-container-min {
     display: flex;
     width: 60%;
-    padding: 5px 30px;
+    padding: 5px 10px;
+
 }
 
 /* Navbar Links */
@@ -38,7 +39,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-around;
+    gap: 20px; 
 }
 
 .links li {
@@ -52,10 +53,20 @@
     &hover{
         color: var(--gradient-blue)
     }
+    a{
+        text-decoration: none ;
+        color: black;
+    }
+    .selected{
+        color: var(--deep-orange)
+    }
+    &hover{
+        color: var(--deep-orange)
+    }
 }
 
 .logo-min-image {
-    width: 90px;
+    width: 80px;
     height: 50px;
     padding: 10px;
 }
