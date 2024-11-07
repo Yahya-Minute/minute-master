@@ -22,7 +22,8 @@ const HomePage = () => {
       description:
         "Designed to save time, earn rewards, and ensure you reach your destination safely. Your trip is just a click away — tap to enjoy the ride.",
       subheading: "Minute Makes a Difference",
-      appsTitle: "Get Apps",
+      appsTitle1: "Get Customers Application",
+      appsTitle2: "Get Drivers Application",
       googlePlay: "Google Play",
       googlePlayLogo: "Google Play",
       appStore: "App Store",
@@ -131,7 +132,7 @@ const HomePage = () => {
               {currentText.subheading}
             </motion.h3>
             <br />
-            <h4>{currentText.appsTitle}</h4>
+            <h4>{currentText.appsTitle1}</h4>
             <ul className="app-links">
               <motion.li
                 whileHover={{ scale: 1.1 }}
@@ -141,7 +142,7 @@ const HomePage = () => {
                 transition={{ duration: 1, delay: 0.6 }}
               >
                 <a
-                  href="https://play.google.com/store" // Replace with actual link
+                  href="https://play.google.com/store/apps/details?id=com.horizons.minute&hl=ar&gl=SA" // Replace with actual link
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-link-min"
@@ -158,7 +159,7 @@ const HomePage = () => {
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <a
-                  href="https://www.apple.com/app-store/" // Replace with actual link
+                  href="https://apps.apple.com/sa/app/minute/id1633915418?l=ar" // Replace with actual link
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-link-min"
@@ -167,6 +168,45 @@ const HomePage = () => {
                   {currentText.appStore}
                 </a>
               </motion.li>
+              
+            </ul>
+            <h4>{currentText.appsTitle2}</h4>
+            <ul className="app-links">
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.horizons.minutedriver&pcampaignid=web_share" // Replace with actual link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-link-min"
+                >
+                  <BiLogoPlayStore style={{ marginRight: "5px" }} />
+                  {currentText.googlePlay}
+                </a>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <a
+                  href="https://apps.apple.com/sa/app/minute-driver/id1634657781?l=ar" // Replace with actual link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-link-min"
+                >
+                  <FaAppStoreIos style={{ marginRight: "5px" }} />
+                  {currentText.appStore}
+                </a>
+              </motion.li>
+              
             </ul>
           </div>
           <div className="image-container-min">
