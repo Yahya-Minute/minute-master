@@ -51,46 +51,48 @@ const Navbar = () => {
   const renderLinks = () => (
     <ul className={`links ${language}`}>
       <li>
-        <button onClick={toggleLanguage} className="language-toggle-button">
-          {language === 'en' ? 'AR' : 'EN'}
-        </button>
+      <button onClick={() => { toggleLanguage(); reloadPage(); }} className="language-toggle-button">
+  {language === 'en' ? 'عربي' : 'English'}
+</button>
+
       </li>
       <li>
-        <NavLink 
-          to="/services" 
-          activeClassName="active-link" 
-          onClick={reloadPage}
-        >
-          {language === 'en' ? 'Services' : 'الخدمات'}
-        </NavLink>
-      </li>
-      <li>
-        <NavLink 
-          to="/driver" 
-          activeClassName="active-link" 
-          onClick={reloadPage}
-        >
-          {language === 'en' ? 'Driver' : 'السائق'}
-        </NavLink>
-      </li>
-      <li>
-        <NavLink 
-          to="/privacy" 
-          activeClassName="active-link" 
-          onClick={reloadPage}
-        >
-          {language === 'en' ? 'privacy' : 'الخصوصية'}
-        </NavLink>
-      </li>
-      <li>
-        <NavLink 
-          to="/terms-and-conditions" 
-          activeClassName="active-link" 
-          onClick={reloadPage}
-        >
-          {language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}
-        </NavLink>
-      </li>
+  <NavLink 
+    to="/services" 
+    className={({ isActive }) => (isActive ? "active-link" : "")} 
+    onClick={reloadPage}
+  >
+    {language === 'en' ? 'Services' : 'الخدمات'}
+  </NavLink>
+</li>
+<li>
+  <NavLink 
+    to="/driver" 
+    className={({ isActive }) => (isActive ? "active-link" : "")} 
+    onClick={reloadPage}
+  >
+    {language === 'en' ? 'Driver' : 'السائق'}
+  </NavLink>
+</li>
+<li>
+  <NavLink 
+    to="/privacy" 
+    className={({ isActive }) => (isActive ? "active-link" : "")} 
+    onClick={reloadPage}
+  >
+    {language === 'en' ? 'Privacy' : 'الخصوصية'}
+  </NavLink>
+</li>
+<li>
+  <NavLink 
+    to="/terms-and-conditions" 
+    className={({ isActive }) => (isActive ? "active-link" : "")} 
+    onClick={reloadPage}
+  >
+    {language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}
+  </NavLink>
+</li>
+
     </ul>
   );
 
