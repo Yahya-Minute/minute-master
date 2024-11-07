@@ -1,14 +1,14 @@
 import React from "react";
 import { useLanguage } from "../../../utility/LanguageContext";
 import { motion } from "framer-motion";
-import "./termsandconditions.css";
+import "./privacy.css";
 
-const TermsAndConditions = () => {
+const Privacy = () => {
   const { language } = useLanguage();
   
   const termsContent = {
     en: {
-      title: "Terms and Conditions",
+      title: "Privacy Policy",
       intro: [
         "• These Terms and Conditions include (a) the general terms of use applicable to your use of Minute technologies; and (b) specific provisions relating to VAT for trips undertaken in the Kingdom of Saudi Arabia (attached in Appendix 1).",
         "• Please read these terms and conditions carefully. These Terms and Conditions contain information about your rights and obligations and other valuable information in connection with your use of Minute technologies."
@@ -183,4 +183,4 @@ const TermsAndConditions = () => {
   );
 };
 
-export default TermsAndConditions;
+export default Privacy;

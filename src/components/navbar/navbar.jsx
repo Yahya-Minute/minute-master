@@ -75,6 +75,15 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink 
+          to="/privacy" 
+          activeClassName="active-link" 
+          onClick={reloadPage}
+        >
+          {language === 'en' ? 'privacy' : 'الخصوصية'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
           to="/terms-and-conditions" 
           activeClassName="active-link" 
           onClick={reloadPage}

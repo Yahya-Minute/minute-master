@@ -5,6 +5,7 @@ import Loader from './utility/loader/loader';
 import Cursor from './utility/cursor/cursor';
 import Navbar from './components/navbar/navbar';
 import Home from './components/pages/home/home';
+import Privacy from './components/pages/privacy/privacy';
 import Footer from './components/pages/footer/footer';
 import Background from './assets/background/video-bg.jpg';
 import Driver from './components/pages/driver/driver';
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/driver" element={<Driver />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                           
           </Routes>

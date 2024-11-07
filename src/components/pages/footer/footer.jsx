@@ -2,7 +2,8 @@ import React from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { FaWhatsapp, FaTwitter, FaInstagram, FaLinkedin, FaApple } from 'react-icons/fa';
 import Logo from '../../../assets/logo/logo.png';  // Replace with the path to your logo
-import './footer.css'
+import './footer.css';
+
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -13,7 +14,7 @@ const Footer = () => {
           <img src={Logo} alt="Minute Logo" className="footer-logo" />
           <p>
             Our services within the Kingdom of Saudi Arabia, whether for transportation within
-            cities or from one city to another, and not only that, there are more
+            cities or from one city to another, and not only that, there are more.
           </p>
           <div className="social-icons">
             <FaWhatsapp />
