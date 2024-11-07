@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';  // Import NavLink
+import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo/logo.png';
 import './navbar.css';
 import Loader from '../../utility/loader/loader';
@@ -12,7 +12,6 @@ const Navbar = () => {
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    // Set direction and CSS class based on language
     const direction = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.setAttribute('dir', direction);
     document.documentElement.classList.toggle('rtl', language === 'ar');
@@ -25,14 +24,14 @@ const Navbar = () => {
       const newLanguage = language === 'en' ? 'ar' : 'en';
       setLanguage(newLanguage);
       localStorage.setItem('language', newLanguage);
-      window.location.reload(); // Reload to reapply language changes
+      window.location.reload();
     }, 100);
   };
 
   const reloadPage = () => {
     setShowLoader(true);
     setTimeout(() => {
-      window.location.reload(); // Trigger reload on link click
+      window.location.reload();
     }, 100);
   };
 
@@ -48,58 +47,44 @@ const Navbar = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const renderLinks = () => (
     <ul className={`links ${language}`}>
       <li>
-      <button onClick={() => { toggleLanguage(); reloadPage(); }} className="language-toggle-button">
-  {language === 'en' ? 'عربي' : 'English'}
-</button>
-
+        <button onClick={() => { toggleLanguage(); reloadPage(); }} className="language-toggle-button">
+          {language === 'en' ? 'عربي' : 'English'}
+        </button>
       </li>
       <li>
-  <NavLink 
-    to="/services" 
-    className={({ isActive }) => (isActive ? "active-link" : "")} 
-    onClick={reloadPage}
-  >
-    {language === 'en' ? 'Services' : 'الخدمات'}
-  </NavLink>
-</li>
-<li>
-  <NavLink 
-    to="/driver" 
-    className={({ isActive }) => (isActive ? "active-link" : "")} 
-    onClick={reloadPage}
-  >
-    {language === 'en' ? 'Driver' : 'السائق'}
-  </NavLink>
-</li>
-<li>
-  <NavLink 
-    to="/privacy" 
-    className={({ isActive }) => (isActive ? "active-link" : "")} 
-    onClick={reloadPage}
-  >
-    {language === 'en' ? 'Privacy' : 'الخصوصية'}
-  </NavLink>
-</li>
-<li>
-  <NavLink 
-    to="/terms-and-conditions" 
-    className={({ isActive }) => (isActive ? "active-link" : "")} 
-    onClick={reloadPage}
-  >
-    {language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}
-  </NavLink>
-</li>
-
+        <NavLink to="/services" onClick={reloadPage} className={({ isActive }) => (isActive ? 'active-link' : '')}>
+          {language === 'en' ? 'Services' : 'الخدمات'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/driver" onClick={reloadPage} className={({ isActive }) => (isActive ? 'active-link' : '')}>
+          {language === 'en' ? 'Driver' : 'السائق'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/privacy" onClick={reloadPage} className={({ isActive }) => (isActive ? 'active-link' : '')}>
+          {language === 'en' ? 'Privacy' : 'الخصوصية'}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/terms-and-conditions" onClick={reloadPage} className={({ isActive }) => (isActive ? 'active-link' : '')}>
+          {language === 'en' ? 'Terms & Conditions' : 'الشروط والأحكام'}
+        </NavLink>
+      </li>
     </ul>
   );
 
   return (
     <>
       {showLoader && <Loader />}
-
+      
       {/* Navbar Top */}
       <div className={`navbar navbar-top ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="logo-min">
@@ -109,11 +94,10 @@ const Navbar = () => {
         </div>
         <div className="links-container-min">{renderLinks()}</div>
         <button className="menu-button" onClick={toggleMobileMenu}>☰</button>
-        {isMobileMenuOpen && <div className="links-container-mobile">{renderLinks()}</div>}
       </div>
 
-      {/* Scroll Navbar */}
-      <div className={`navbar navbar-scroll ${isVisible ? 'navbar-visible' : ''}`}>
+      {/* Navbar Scroll */}
+      <div className={`navbar navbar-scroll ${isVisible ? 'navbar-visible' : ''} ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="logo-min">
           <NavLink to="/" onClick={reloadPage}>
             <img src={Logo} alt="Logo" className="logo-min-image" />
@@ -121,7 +105,12 @@ const Navbar = () => {
         </div>
         <div className="links-container-min">{renderLinks()}</div>
         <button className="menu-button" onClick={toggleMobileMenu}>☰</button>
-        {isMobileMenuOpen && <div className="links-container-mobile">{renderLinks()}</div>}
+      </div>
+
+      {/* Mobile Menu Popup */}
+      <div className={`links-container-mobile ${isMobileMenuOpen ? 'open' : ''}`}>
+        <button className="menu-button-close" onClick={closeMobileMenu}>✕</button>
+        {renderLinks()}
       </div>
     </>
   );

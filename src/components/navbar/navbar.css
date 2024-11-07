@@ -1,4 +1,4 @@
-/* Base styles for both navbars */
+/* Base Styles for Navbar */
 .navbar {
     display: flex;
     width: 100%;
@@ -10,51 +10,35 @@
     padding: 10px 20px;
 }
 
-/* Top Navbar */
 .navbar-top {
     position: relative;
     top: 0;
     box-shadow: none;
 }
 
-/* Scrolling Navbar */
 .navbar-scroll {
     position: fixed;
     top: -100px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar Visibility */
 .navbar-scroll.navbar-visible {
     top: 0;
 }
-/* Reverse flex for RTL layouts */
-/* Reverse directions in RTL */
-.rtl .navbar, 
-.rtl .links, 
-.rtl .app-container-min {
-  flex-direction: row-reverse;
-}
 
-
-/* Active Link */
+/* Active Link Styling */
 .links a.active-link {
     text-decoration: underline;
-    color: var(--deep-orange)
+    color: var(--deep-orange);
 }
 
-/* Link Container for Desktop */
+/* Links Container (desktop) */
 .links-container-min {
     display: flex;
     gap: 40px;
 }
 
-/* RTL Adjustment: Reverse Link Container Order */
-.rtl .links-container-min {
-    flex-direction: row-reverse;
-}
-
-/* Links styling */
+/* General Links Styling */
 .links {
     display: flex;
     gap: 40px;
@@ -76,7 +60,7 @@
     color: var(--deep-orange);
 }
 
-/* Language Toggle */
+/* Language Toggle Button Styling */
 .language-toggle-button {
     background: none;
     border: none;
@@ -86,13 +70,13 @@
     color: var(--primary-color);
 }
 
-/* Logo */
+/* Logo Styling */
 .logo-min-image {
     width: 105px;
     height: 70px;
 }
 
-/* Menu Button for Mobile */
+/* Menu Button (hamburger) - Hidden on Desktop */
 .menu-button {
     display: none;
     background: transparent;
@@ -101,40 +85,45 @@
     cursor: pointer;
 }
 
+/* Mobile Menu Container - Hidden by default */
+.links-container-mobile {
+    display: none;
+}
+
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
-    .navbar-top{
+    .navbar-top {
         justify-content: space-between;
         padding: 10px;
         width: auto;
     }
-    .navbar-scroll{
+
+    .navbar-scroll {
         justify-content: space-between;
         padding: 10px;
         width: 96%;
     }
+
+    /* Hide the default links container on mobile */
     .links-container-min {
         display: none;
     }
 
+    /* Show the menu button (hamburger) on mobile */
     .menu-button {
         display: block;
     }
-    .links{
+
+    /* Stack the links vertically on mobile */
+    .links {
         flex-direction: column;
         width: 80%;
-        gap: 5px;
     }
-    .rtl .links{
-        flex-direction: column;
-        width: 80%;
-        gap: 5px;
-    }
+
+    /* Mobile Menu Style - Hidden by default */
     .links-container-mobile {
-        display: flex;
         position: absolute;
         top: 60px;
-        margin: 2px;
         right: 0;
         border-radius: 20px;
         background-color: var(--light-orange);
@@ -146,30 +135,34 @@
         visibility: hidden;
         opacity: 0;
         transform: translateY(-10px);
-        transition: visibility 1s, opacity 0.3s ease, transform 0.3s ease;
-    }
-    .navbar .open .links-container-mobile {
-        display: block;
-      }
-
-    /* RTL Adjustment: Mobile Navbar opens from the left */
-    .rtl .links-container-mobile {
-        right: auto;
-        left: 0;
+        transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+        z-index: 50;
     }
 
+    /* When the navbar is open, the mobile menu becomes visible */
     .navbar.open .links-container-mobile {
         visibility: visible;
         opacity: 1;
         transform: translateY(0);
     }
 
+    /* Styling for individual items in the mobile menu */
     .links-container-mobile li {
         padding: 10px 0;
         font-size: 18px;
     }
 
-    .rtl .navbar {
-        flex-direction: row-reverse;
+    /* Close button for mobile menu (optional) */
+    .menu-button-close {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 36px;
+        cursor: pointer;
+        color: black;
+        padding: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 }
