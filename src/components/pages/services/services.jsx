@@ -38,17 +38,17 @@ const content = {
     ],
     testimonials: [
       {
-        name: "John Doe",
+        name: "Haris",
         content: "Minute Taxi is the best! I’ve never had a more reliable experience with any other taxi service. The app makes everything so smooth and quick!",
         image: "https://placehold.co/800"
       },
       {
-        name: "Sarah Lee",
+        name: "Yahya",
         content: "Affordable rates and great service! The drivers are friendly, the rides are comfortable, and I feel safe every time I book a Minute Taxi.",
         image: "https://placehold.co/800"
       },
       {
-        name: "Michael Brown",
+        name: "Fuzail Shareef",
         content: "The 24/7 availability is a lifesaver! I often need rides at odd hours, and Minute Taxi has always been there for me.",
         image: "https://placehold.co/800"
       }
@@ -144,7 +144,7 @@ const Services = () => {
       </div>
 
       <div className="testimonials-container">
-        <h2>{language === 'en' ? 'What Our Clients Say' : 'ماذا يقول عملاؤنا'}</h2>
+        <h2>{language === 'en' ? 'What Our Customers Say?' : 'ماذا يقول عملاؤنا'}</h2>
         <div className="testimonials-carousel">
           {currentContent.testimonials.map((testimonial, index) => (
             <motion.div
@@ -156,8 +156,8 @@ const Services = () => {
             >
               <img src={testimonial.image} alt={`${testimonial.name}'s photo`} />
               <div className="testimonial-content">
-                <p>{testimonial.content}</p>
                 <h4>{testimonial.name}</h4>
+                <p>{testimonial.content}</p>
               </div>
             </motion.div>
           ))}

@@ -2,9 +2,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  
 }
-
 
 /* Home page styles */
 .home-page {
@@ -15,11 +13,17 @@ html, body {
   background: white;
   margin-bottom: 300px;
   padding: 0 50px;
-  h3{
+}
 
-    color: var(--gradient-blue);
-    font-style: oblique;
-  }
+.home-page h3 {
+  color: var(--gradient-blue);
+  font-style: oblique;
+  background: var(--light-orange);
+  padding: 20px 5px;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  border: 1px white solid;
 }
 
 .home-page-min {
@@ -31,7 +35,6 @@ html, body {
 }
 
 /* Reverse flex for RTL layouts */
-/* Reverse directions in RTL */
 .rtl .home-page-min, 
 .rtl .about-container-min, 
 .rtl .app-container-min {
@@ -74,85 +77,129 @@ html, body {
 }
 
 .image-container-min img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
 .about-container-min {
+  display: flex;
   width: 80%;
   margin-bottom: 300px;
   margin-top: 200px;
-  display: flex;
-  flex-direction: row-reverse;
+  gap: 100px;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
+  padding-bottom: 50px;
 }
 
 .about-content-min {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
 }
 
 .about-content-min li {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  background-color: white;
+  border: 1px var(--deep-orange) solid;
+  border-radius: 20px;
   padding: 0;
   margin: 0;
-  h5{
-    margin: 20px;
-  }
-  p{
-    margin: 10px;
-  }
+}
+
+.about-content-min li h5 {
+  padding: 5px;
+  margin: 0;
+  line-height: 1.8rem;
+  font-size: largest;
+  text-align: start;
+  color: var(--light-orange)
+}
+
+.about-content-min li p {
+  margin: 0;
+  margin-bottom: 10px;
+  line-height: 1.2rem;
+  width: 100%;
+  height: 100%;
+  font-size: medium;
+  padding: 20px;
 }
 
 .about-content-min li img {
   display: flex;
-  width:120px;
+  width: 100px;
+  margin: 10px;
+  border: 10px solid var(--light-orange);
+  border-radius: 100px;
 }
 
 .iphone-content-min img {
-  width: 280px;
+  width: 260px;
+  padding: 100px;
 }
 
 .app-container-min {
   position: absolute;
-  top: 265%;
+  top: 280%;
   display: flex;
   flex-direction: row-reverse;
-  padding: 20px;
   border-radius: 50px;
   background: var(--gradient-blue);
   width: 80%;
-  height: 40%;
   align-items: center;
-  justify-content: space-around;
 }
 
 .app-container-min h4 {
   color: white;
+  font-size: xxx-large;
 }
 
 .app-container-min p {
   color: white;
+  font-size: larger;
 }
 
 .app-container-min li {
   color: white;
+  align-items: center;
+  display: flex;
+  gap: 10px;
   background-color: black;
   padding: 10px;
   border-radius: 5px;
+  font-size: x-large;
+}
+
+.app-container-min li a {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  align-items: center;
+  display: flex;
+}
+
+.app-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0;
 }
 
 .app-content-min {
   display: flex;
+  padding: 50px;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  justify-content: space-around;
+  width: 40%;
 }
 
 .app-content-min ul {
@@ -168,21 +215,25 @@ html, body {
 }
 
 .app-container-min img {
-  max-width: 200px;
+  display: flex;
+  max-width: 290px;
+  right: 0;
 }
 
 .content-min {
   flex-direction: column;
 }
 
-button.app-link-min {
+a.app-link-min {
   border: none;
   border-radius: 50px;
   width: 200px;
   height: 50px;
   background: var(--gradient-orange);
-  color: white;
+  color: black;
   font-size: 20px;
+  text-decoration: none;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,4 +265,110 @@ button.signup-driver-min {
 
 .image-container-min {
   width: 80%;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 1rem;
+  }
+
+  .home-page-min {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .opener-min {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+
+  }
+
+  .welcome-container-min {
+    padding-right: 10px;
+  }
+
+  .image-container-min {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-container-min {
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 100px;
+    margin-bottom: 550px;
+    padding: 20px;
+    height: 300vh;
+  }
+
+  .about-content-min {
+    width: 100%;
+    gap: 10px;
+    ul{
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .about-content-min li {
+    flex-direction: column;
+    align-items: center;
+    p{
+      width: 80%;
+    }
+  }
+  .app-cont{
+    h4{
+
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .about-content-min li img {
+    margin-bottom: 10px;
+  }
+
+  .app-container-min {
+    flex-direction: column;
+    top:530%;
+    width: 90%;
+    align-items: center;
+
+  }
+
+  .app-content-min {
+    width: 80%;
+   
+  }
+  .app-content-min h4{
+    width: 80%;
+    line-height: 2.5rem;
+  }
+
+  .app-content-min ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .app-container-min img {
+    max-width: 200px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .app-link-min {
+    width: 100%;
+    text-align: center;
+    h4{
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .signup-driver-min {
+    width: 100%;
+  }
 }

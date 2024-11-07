@@ -28,6 +28,14 @@
 .navbar-scroll.navbar-visible {
     top: 0;
 }
+/* Reverse flex for RTL layouts */
+/* Reverse directions in RTL */
+.rtl .navbar, 
+.rtl .links, 
+.rtl .app-container-min {
+  flex-direction: row-reverse;
+}
+
 
 /* Active Link */
 .links a.active-link {
@@ -89,12 +97,22 @@
     display: none;
     background: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 36px;
     cursor: pointer;
 }
 
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
+    .navbar-top{
+        justify-content: space-between;
+        padding: 10px;
+        width: auto;
+    }
+    .navbar-scroll{
+        justify-content: space-between;
+        padding: 10px;
+        width: 96%;
+    }
     .links-container-min {
         display: none;
     }
@@ -119,6 +137,9 @@
         transform: translateY(-10px);
         transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
     }
+    .navbar .open .links-container-mobile {
+        display: block;
+      }
 
     /* RTL Adjustment: Mobile Navbar opens from the left */
     .rtl .links-container-mobile {

@@ -7,15 +7,18 @@
 
 .services-page {
   position: relative;
-  padding: 2rem;
   background-color: white;
   color: #333;
-  h1{
-    margin: 10px;
-  }
-  p{
-    font-size: large;
-  }
+}
+
+.services-page h1 {
+  margin: 10px;
+  color: black;
+}
+
+.services-page p {
+  font-size: large;
+  margin: 10px;
 }
 
 .services-container {
@@ -28,20 +31,20 @@
 }
 
 .service-item {
-  position: relative; /* Required for clock background positioning */
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: var(--light-orange);
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   width: 100%;
   max-width: 1000px;
   border-radius: 50px;
   box-shadow: 0px 4px 15px var(--shadow-color);
   transition: transform 0.3s ease;
-  margin-left: 100px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -50,22 +53,21 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 50px;
   border: 6px solid var(--deep-orange);
   border-style: dashed;
   background-color: white;
-  top: -50px; /* Adjust the positioning as needed */
-  left: -50px; /* Adjust the positioning as needed */
-  opacity: 0.2; /* Set opacity for background effect */
-  z-index: 1; /* Position behind text */
+  top: -50px;
+  left: -50px;
+  opacity: 0.2;
+  z-index: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 
 .service-content,
 .service-icon {
   position: relative;
-  z-index: 2; /* Keep content above the clock */
+  z-index: 2;
 }
 
 h3 {
@@ -75,11 +77,8 @@ h3 {
 .service-item:nth-child(even) {
   background-color: var(--deep-orange);
   border: 2px solid var(--light-orange);
-  margin-right: 200px;
-  border:#4850a1;
   flex-direction: row-reverse;
 }
-
 
 .service-item:hover {
   transform: scale(1.05);
@@ -108,12 +107,12 @@ h3 {
   align-items: center;
   margin-top: 4rem;
   gap: 2rem;
-  /* background: var(--gradient-blue); */
   padding: 2rem;
   border-radius: 20px;
-  h2{
-    color: black
-  }
+}
+
+.testimonials-container h2 {
+  color: black;
 }
 
 .testimonials-carousel {
@@ -125,11 +124,12 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 2rem;
-  background-color: white;
+  background: var(--light-orange);
   border-radius: 20px;
   box-shadow: 0px 4px 12px var(--shadow-color);
-  color: #333;
+  color: white;
   width: 100%;
   max-width: 800px;
 }
@@ -137,8 +137,8 @@ h3 {
 .testimonial-item img {
   width: 180px;
   height: 180px;
-  border-radius: 20px;
-  margin-right: 1.5rem;
+  border-radius: 100px;
+  border: 10px solid var(--deep-orange);
 }
 
 .testimonial-content {
@@ -154,26 +154,76 @@ h3 {
 
 .testimonial-content h4 {
   font-weight: bold;
-  margin-top: 0.5rem;
+  margin: 20px;
+  margin-top: 30px;
+  text-align: center;
 }
 
-/* Responsive Styling */
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  .services-page {
+    padding: 1rem;
+  }
+
+  /* Stack service items vertically */
   .service-item {
     flex-direction: column;
+    padding: 1rem;
+    margin: 20px;
+    width: auto;
+  }
+
+  /* Ensure service content is centered and flexible */
+  .service-content {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
   }
 
   .testimonials-container {
+    padding: 0;
+  }
+
+  .testimonials-carousel {
     flex-direction: column;
+    gap: 1rem;
   }
 
   .testimonial-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 1.5rem;
+    width: auto;
+    max-width: 100%;
+    box-shadow: none;
+    background-color: var(--light-orange);
   }
 
   .testimonial-item img {
-    margin: 0 0 1rem 0;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-content h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust h3 for smaller screen sizes */
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-item:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
   }
 }

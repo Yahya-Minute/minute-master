@@ -7,9 +7,33 @@
     font-family: Arial, sans-serif;
 }
 
+.rtl .footer-container, .rtl .footer-content{
+    flex-direction: row-reverse;
+}
+.loc-min{
+    flex-direction: start;
+    display: flex ;
+    flex-direction: column;
+    p{
+        align-items: center;
+        display: flex;
+    }
+}
+.rtl .loc-min{
+    flex-direction: end;
+    display: flex ;
+    flex-direction: column;
+    p{
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+    }
+}
+
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     max-width: 1200px;
     margin: 0 auto;
     gap: 1rem;
@@ -35,7 +59,7 @@
 .footer-section p {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
-    color: #666;
+    color:var(--light-orange);
     line-height: 1.5;
 }
 
@@ -44,6 +68,7 @@
     font-size: 0.95rem;
     color: var(--gradient-blue); /* Initial blue color */
     margin-bottom: 0.5rem;
+    color:var(--light-orange);
     text-decoration: none;
 }
 
@@ -58,6 +83,9 @@
     font-size: 24px;  /* Set icon size to 24px */
     margin-top: 1rem;
 }
+.rtl .social-icons{
+    flex-direction: row-reverse;
+}
 
 .social-icons svg {
     color: var(--light-orange); /* Initial blue color */
@@ -66,7 +94,7 @@
 }
 
 .social-icons svg:hover {
-    color: #005bb5; /* Darker blue on hover */
+    color: #1f35ff; /* Darker blue on hover */
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
@@ -86,6 +114,10 @@
     padding: 20px;
     border-radius: 50px;
     color: var(--light-orange); /* Initial blue color */
+    transition: background-color 0.3s ease-in-out;
+    &hover{
+        background-color: #333;
+    }
 }
 
 /* Responsive Design */

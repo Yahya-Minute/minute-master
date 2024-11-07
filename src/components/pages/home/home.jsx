@@ -8,7 +8,8 @@ import Three from "../../../assets/home/3.png";
 import Four from "../../../assets/home/4.png";
 import FiveFive from "../../../assets/home/55.png";
 import "./home.css";
-
+import { FaAppStoreIos, FaApple } from "react-icons/fa";
+import { BiLogoPlayStore } from "react-icons/bi";
 const HomePage = () => {
   const { language, toggleLanguage } = useContext(LanguageContext); // Access language context
   const [isLoading, setIsLoading] = useState(true); // State for managing loading
@@ -23,12 +24,21 @@ const HomePage = () => {
       subheading: "Minute Makes a Difference",
       appsTitle: "Get Apps",
       googlePlay: "Google Play",
+      googlePlayLogo: "Google Play",
       appStore: "App Store",
+      appStoreLogo: "App Store",
       feature1: "The easiest to use",
       feature1Description:
-        "We designed it to be easy to use and quick to order",
+        "We designed it to be easy to use and quick to book.",
+      feature2: "The safest ",
+      feature2Description:
+        "We were keen to raise the level of security, we added direct tracking of family members, so that you can be assured of peace of mind.",
+      feature3: "The fastest collection ",
+      feature3Description:
+        "You will not wait long with us to collect your money.",
       getApp: "Get the App",
-      downloadApp: "Download the app now and get started",
+      downloadApp:
+        "Dear partner, you can get the application now from here and register through it ",
     },
     ar: {
       heading: "معنا، دقيقة تحدث فرقًا، وتصل بأمان في الوقت المحدد",
@@ -38,8 +48,14 @@ const HomePage = () => {
       appsTitle: "احصل على التطبيقات",
       googlePlay: "جوجل بلاي",
       appStore: "متجر التطبيقات",
-      feature1: "أسهل استخدامًا",
-      feature1Description: "لقد صممناها لتكون سهلة الاستخدام وسريعة الطلب",
+
+      feature1: "الاسهل استخداماً",
+      feature1Description: " صممناه ليكون سهل الاستخدام وسريع فى الطلب",
+      feature2: "الاكثر اماناً",
+      feature2Description:
+        "حرصنا على رفع مستوي الأمان أضفنا لكم التتبع المباشر لأفراد العائلة لتكونوا مطمئني البال ",
+      feature3: "الأسرع تحصيلاً",
+      feature3Description: "لن تنتظروا طويلاً معنا فى تحصيل أموالكم",
       getApp: "احصل على التطبيق",
       downloadApp: "قم بتنزيل التطبيق الآن وابدأ",
     },
@@ -64,16 +80,19 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div id="home" className="home-page" style={{
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
-      backgroundSize: '230%', // Scale up to show only a part
-      backgroundPosition: 'top left', // Position at top left
-      backgroundRepeat: 'no-repeat',
-    }}>
+    <div
+      id="home"
+      className="home-page"
+      style={{
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
+        backgroundSize: "230%", // Scale up to show only a part
+        backgroundPosition: "top left", // Position at top left
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {isLoading ? (
         // Loader Animation
         <motion.div
-        
           className="loader-container"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -84,7 +103,6 @@ const HomePage = () => {
       ) : (
         // Home Page Content after loading
         <motion.div
-        
           className="home-page-min"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -122,9 +140,15 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                <button className="app-link-min">
+                <a
+                  href="https://play.google.com/store" // Replace with actual link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-link-min"
+                >
+                  <BiLogoPlayStore style={{ marginRight: "5px" }} />
                   {currentText.googlePlay}
-                </button>
+                </a>
               </motion.li>
               <motion.li
                 whileHover={{ scale: 1.1 }}
@@ -133,7 +157,15 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                <button className="app-link-min">{currentText.appStore}</button>
+                <a
+                  href="https://www.apple.com/app-store/" // Replace with actual link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="app-link-min"
+                >
+                  <FaAppStoreIos style={{ marginRight: "5px" }} />
+                  {currentText.appStore}
+                </a>
               </motion.li>
             </ul>
           </div>
@@ -160,9 +192,9 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <img src={img} alt={`Feature ${index + 1}`} loading="lazy" />
-                <h5>{currentText.feature1}</h5>
-                <p>{currentText.feature1Description}</p>
+                <img src={img} alt="Feature" loading="lazy" />
+                <h5>{currentText[`feature${index + 1}`]}</h5>
+                <p>{currentText[`feature${index + 1}Description`]}</p>
               </motion.li>
             ))}
           </ul>
@@ -208,7 +240,7 @@ const HomePage = () => {
               {currentText.downloadApp}
             </motion.p>
           </div>
-          <ul>
+          <ul className="app-cont">
             <motion.li
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -216,16 +248,32 @@ const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {currentText.googlePlay}
+              <a
+                href="https://play.google.com/store" // Replace with actual Google Play link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-cont"
+              >
+                <BiLogoPlayStore style={{ marginRight: "5px" }} />
+                {currentText.googlePlay}
+              </a>
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
-              {currentText.appStore}
+              <a
+                href="https://www.apple.com/app-store/" // Replace with actual App Store link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-cont"
+              >
+                <FaApple style={{ marginRight: "5px" }} />
+                {currentText.appStore}
+              </a>
             </motion.li>
           </ul>
         </div>
