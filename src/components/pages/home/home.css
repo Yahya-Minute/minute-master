@@ -3,7 +3,19 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
+.rtl{
+  font-family: var(--arabic);
+  .app-links{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+.welcome-container-min h4{
+  margin: 15px;
+  padding: 10px;
+  font-size: calc(20px + 1vw);
+}
 /* Home page styles */
 .home-page {
   display: flex;
@@ -20,6 +32,7 @@ html, body {
   font-style: oblique;
   background: var(--light-orange);
   padding: 20px 5px;
+  margin: 0px;
   color: white;
   border-radius: 50px;
   text-align: center;
@@ -43,7 +56,7 @@ html, body {
 
 .opener-min {
   width: 100%;
-  height: 100%;
+  height: 100%; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +64,7 @@ html, body {
 
 .opener-min {
   width: 60%;
-  height: 50%;
+  height: 100%;
   display: flex;
   align-items: center;
   background-color: black;
@@ -62,9 +75,13 @@ html, body {
   flex: 1;
   height: auto;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   padding-right: 20px;
   padding: 20px;
+  h1{
+    font-size: 48px;
+  }
 
 }
 
@@ -231,15 +248,18 @@ a.app-link-min {
   border: none;
   border-radius: 50px;
   width: 200px;
-  height: 50px;
-  background: var(--gradient-orange);
-  color: black;
+  padding: 10px;
   font-size: 20px;
+  background: var(--deep-orange);
+  color: white;
   text-decoration: none;
   gap: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  span{
+    font-size: 24px;
+  }
 }
 
 li {

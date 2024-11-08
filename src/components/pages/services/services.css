@@ -13,13 +13,14 @@
 }
 
 .services-page h1 {
-  margin: 10px;
-  color: black;
+  margin: 20px;
+  color: var(--light-orange);
 }
 
 .services-page p {
   font-size: large;
-  margin: 10px;
+  margin: 20px;
+  margin-bottom: 50px;
 }
 
 .services-container {
@@ -29,6 +30,9 @@
   gap: 2rem;
   overflow: hidden;
   position: relative;
+  height: 100%;
+  padding: 20px;
+  border-radius: 50px;
 }
 
 .service-item {
@@ -47,6 +51,23 @@
   transition: transform 0.3s ease;
   margin: 0 auto;
   overflow: hidden;
+  h3{
+    font-size: 32px;
+    margin: 0;
+  }
+  p{
+    margin: 0;
+  }
+}
+.service-content{
+  width: 60%;
+  margin: 20px;
+  h3{
+    padding: 10px;
+  }
+  p{
+    padding: 10px;
+  }
 }
 
 .service-item::before {
@@ -54,7 +75,7 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  border-radius: 50px;
+  border-radius: 100px;
   border: 6px solid var(--deep-orange);
   border-style: dashed;
   background-color: white;
@@ -99,6 +120,10 @@ h3 {
   height: 100px;
   border-radius: 10px;
   margin-right: 1rem;
+}
+.icon-img{
+  display: flex;
+min-width: 300px;
 }
 
 /* Testimonials Styles */

@@ -43,23 +43,23 @@ const HomePage = () => {
     },
     ar: {
       heading: "معنا، دقيقة تحدث فرقًا، وتصل بأمان في الوقت المحدد",
-      description:
-        "تم تصميمه لتوفير الوقت، وكسب المكافآت، وضمان وصولك إلى وجهتك بأمان. رحلتك على بعد نقرة واحدة — انقر للاستمتاع بالرحلة.",
+      description: "تم تصميمه لتوفير الوقت، وكسب المكافآت، وضمان وصولك إلى وجهتك بأمان. رحلتك على بعد نقرة واحدة — انقر للاستمتاع بالرحلة.",
       subheading: "الدقيقة تحدث فرقًا",
+      appsTitle1: "تطبيق العملاء",
+      appsTitle2: "تطبيق السائقين",
       appsTitle: "احصل على التطبيقات",
       googlePlay: "جوجل بلاي",
       appStore: "متجر التطبيقات",
-
-      feature1: "الاسهل استخداماً",
-      feature1Description: " صممناه ليكون سهل الاستخدام وسريع فى الطلب",
-      feature2: "الاكثر اماناً",
-      feature2Description:
-        "حرصنا على رفع مستوي الأمان أضفنا لكم التتبع المباشر لأفراد العائلة لتكونوا مطمئني البال ",
+      
+      feature1: "الأسهل استخداماً",
+      feature1Description: "صممناه ليكون سهل الاستخدام وسريع في الطلب",
+      feature2: "الأكثر أماناً",
+      feature2Description: "حرصنا على رفع مستوى الأمان وأضفنا لكم التتبع المباشر لأفراد العائلة لتكونوا مطمئني البال",
       feature3: "الأسرع تحصيلاً",
-      feature3Description: "لن تنتظروا طويلاً معنا فى تحصيل أموالكم",
+      feature3Description: "لن تنتظروا طويلاً معنا في تحصيل أموالكم",
       getApp: "احصل على التطبيق",
-      downloadApp: "قم بتنزيل التطبيق الآن وابدأ",
-    },
+      downloadApp: "قم بتنزيل التطبيق الآن وابدأ"
+    }    
   };
 
   const currentText = texts[language];
@@ -132,7 +132,11 @@ const HomePage = () => {
               {currentText.subheading}
             </motion.h3>
             <br />
-            <h4>{currentText.appsTitle1}</h4>
+            <motion.h4
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >{currentText.appsTitle1}</motion.h4>
             <ul className="app-links">
               <motion.li
                 whileHover={{ scale: 1.1 }}
@@ -147,7 +151,10 @@ const HomePage = () => {
                   rel="noopener noreferrer"
                   className="app-link-min"
                 >
-                  <BiLogoPlayStore style={{ marginRight: "5px" }} />
+                  <span>
+                    
+                    <BiLogoPlayStore style={{ marginRight: "5px"}} />
+                    </span>
                   {currentText.googlePlay}
                 </a>
               </motion.li>
@@ -164,13 +171,19 @@ const HomePage = () => {
                   rel="noopener noreferrer"
                   className="app-link-min"
                 >
-                  <FaAppStoreIos style={{ marginRight: "5px" }} />
+                  <span>
+                    <FaAppStoreIos style={{ marginRight: "5px" }} />
+                    </span>
                   {currentText.appStore}
                 </a>
               </motion.li>
               
             </ul>
-            <h4>{currentText.appsTitle2}</h4>
+            <motion.h4
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >{currentText.appsTitle2}</motion.h4>
             <ul className="app-links">
               <motion.li
                 whileHover={{ scale: 1.1 }}

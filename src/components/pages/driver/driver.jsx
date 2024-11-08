@@ -135,6 +135,10 @@ const Driver = () => {
           </form>
         )}
       </motion.div>
+      <motion.div
+      className="Clipart-registration">
+        
+      </motion.div>
     </div>
   );
 };

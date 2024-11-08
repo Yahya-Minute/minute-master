@@ -144,12 +144,12 @@ const Services = () => {
           <motion.div
             className={`service-item ${index % 2 === 0 ? 'left-align' : 'right-align'}`}
             key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 2, delay: 1, ease: 'easeOut' }}
           >
             <div className="service-icon">
-              <img src={service.icon} alt={`${service.heading} icon`} />
+              <img src={service.icon} alt={`${service.heading} icon`} className='icon-img'/>
             </div>
             <div className="service-content">
               <h3>{service.heading}</h3>
