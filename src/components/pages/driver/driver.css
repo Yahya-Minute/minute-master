@@ -1,30 +1,44 @@
-/* driver.css */
 .driver-reg {
-  background-color: var(--white);
-  padding: 60px 20px;
-  border-radius: 10px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-  margin: auto;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
+  background-color: var(--white);
+  margin: auto;
+  max-width: 100%;
+  overflow: hidden;
+  padding-bottom: 100px;
 }
 
-/* Driver registration form box */
 .driver-registration {
   width: 50%;
-
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
   padding: 3rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: red;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #e0e0e0;
 }
+
+.right-info {
+  width: 50%;
+  padding: 3rem;
+  /* background-image: url('your-image-url.jpg');  */
+  background-size: cover;
+  background-position: center;
+  color: var(--light-orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-info h2 {
+  font-size: 2rem;
+  color: var(--deep-orange);
+}
+
+.right-info p {
+  margin-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
 
 /* Form styling */
 .driver-form {
@@ -96,4 +110,17 @@ input[type="tel"]:focus {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--deep-orange);
+}
+.error-input {
+  border-color: red;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.submit-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }

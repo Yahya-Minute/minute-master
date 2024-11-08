@@ -103,7 +103,7 @@ html, body {
 
 .about-container-min {
   display: flex;
-  width: 80%;
+  width: 90%;
   margin-bottom: 300px;
   margin-top: 200px;
   gap: 100px;
@@ -126,7 +126,7 @@ html, body {
 .about-content-min li {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: var(--light-orange);
   border: 1px var(--deep-orange) solid;
   border-radius: 20px;
   padding: 0;
@@ -139,7 +139,7 @@ html, body {
   line-height: 1.8rem;
   font-size: largest;
   text-align: start;
-  color: var(--light-orange)
+  color: var(--deep-orange)
 }
 
 .about-content-min li p {
@@ -147,8 +147,9 @@ html, body {
   margin-bottom: 10px;
   line-height: 1.2rem;
   width: 100%;
+  color: white;
   height: 100%;
-  font-size: medium;
+  font-size: large;
   padding: 20px;
 }
 
@@ -156,7 +157,7 @@ html, body {
   display: flex;
   width: 100px;
   margin: 10px;
-  border: 10px solid var(--light-orange);
+  border: 10px solid white;
   border-radius: 100px;
 }
 

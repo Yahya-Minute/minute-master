@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { LanguageContext } from "../../../utility/LanguageContext"; // Import context
 import Home from "../../../assets/home/cover.png";
 import One from "../../../assets/home/1.png";
@@ -13,6 +13,11 @@ import { BiLogoPlayStore } from "react-icons/bi";
 const HomePage = () => {
   const { language, toggleLanguage } = useContext(LanguageContext); // Access language context
   const [isLoading, setIsLoading] = useState(true); // State for managing loading
+
+   // Parallax effect setup
+   const { scrollY } = useViewportScroll();
+   const backgroundPositionY = useTransform(scrollY, [0, 1000], ["top", "bottom"]);
+ 
 
   // Translations for both languages
   const texts = {
@@ -87,7 +92,7 @@ const HomePage = () => {
       style={{
         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
         backgroundSize: "300%", // Scale up to show only a part
-        backgroundPosition: "top left", // Position at top left
+        backgroundPosition: backgroundPositionY,
         backgroundRepeat: "no-repeat",
       }}
     >

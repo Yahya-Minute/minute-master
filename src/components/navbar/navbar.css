@@ -13,6 +13,9 @@
     .navbar{
         flex-direction: row-reverse;
     }
+    .links{
+        flex-direction: row-reverse;
+    }
 }
 .navbar-top {
     position: relative;
