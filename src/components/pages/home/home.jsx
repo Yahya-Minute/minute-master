@@ -86,7 +86,7 @@ const HomePage = () => {
       className="home-page"
       style={{
         backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
-        backgroundSize: "230%", // Scale up to show only a part
+        backgroundSize: "300%", // Scale up to show only a part
         backgroundPosition: "top left", // Position at top left
         backgroundRepeat: "no-repeat",
       }}

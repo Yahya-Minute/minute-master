@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background -->
+    <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+
+    
+    <!-- Screen/device frame -->
+    <rect x="45" y="40" width="110" height="85" rx="10" fill="none" stroke="#4850a1" stroke-width="6"/>
+    
+    <!-- Screen content -->
+    <rect x="55" y="50" width="90" height="15" rx="3" fill="#f29d1e" opacity="0.3"/>
+    <circle cx="160" cy="57" r="3" fill="#f29d1e"/>
+    
+    <!-- Menu items -->
+    <rect x="55" y="75" width="40" height="8" rx="2" fill="#f29d1e"/>
+    <rect x="55" y="90" width="30" height="8" rx="2" fill="#f29d1e"/>
+    <rect x="55" y="105" width="35" height="8" rx="2" fill="#f29d1e"/>
+    
+    <!-- Happy cursor/pointer -->
+    <path d="M120 70 Q125 85 135 82 L125 95 L115 90 L120 70" fill="#4850a1"/>
+    
+    <!-- User figure -->
+    <circle cx="100" cy="155" r="12" fill="#4850a1"/> <!-- head -->
+    <path d="M100 167 V180" stroke="#4850a1" stroke-width="6" stroke-linecap="round"/> <!-- body -->
+    <path d="M85 170 L100 180 L115 170" stroke="#4850a1" stroke-width="6" stroke-linecap="round"/> <!-- arms -->
+    
+    <!-- Decorative elements -->
+    <path d="M40 120 L45 125 L40 130" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M160 70 L155 75 L160 80" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="170" cy="130" r="4" fill="#f29d1e"/>
+    <circle cx="30" cy="70" r="4" fill="#f29d1e"/>
+  </svg>

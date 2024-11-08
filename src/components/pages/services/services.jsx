@@ -3,6 +3,11 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { LanguageContext } from '../../../utility/LanguageContext'; // Import context
 import './services.css';
+import Safety from '../../../assets/services/safety.svg'
+import T247 from '../../../assets/services/247.svg'
+import UserF from '../../../assets/services/userfriendly.svg'
+import Reliable from '../../../assets/services/reliable.svg'
+import Affordable from '../../../assets/services/affordable.svg'
 
 // Service and testimonial content for both languages
 const content = {
@@ -13,27 +18,27 @@ const content = {
       {
         heading: "Reliable Rides",
         description: "Our rides are known for reliability, comfort, and punctuality, ensuring you get to your destination on time every time.",
-        icon: "reliable.png"
+        icon: Reliable
       },
       {
         heading: "Affordable Rates",
         description: "With our competitive pricing, Minute Taxi offers one of the most affordable services without compromising on quality.",
-        icon: "affordable.png"
+        icon: Affordable
       },
       {
         heading: "24/7 Availability",
         description: "Whether it’s early morning or late night, Minute Taxi is available around the clock for your convenience.",
-        icon: "availability.png"
+        icon: T247
       },
       {
         heading: "User-Friendly App",
         description: "Our app’s intuitive interface makes it easy to book rides, track drivers, and make secure payments on the go.",
-        icon: "app.png"
+        icon: UserF
       },
       {
         heading: "Safety First",
         description: "Safety is our top priority, with background-checked drivers, sanitized cars, and round-the-clock support.",
-        icon: "safety.png"
+        icon: Safety
       }
     ],
     testimonials: [
@@ -61,27 +66,44 @@ const content = {
       {
         heading: "رحلات موثوقة",
         description: "رحلاتنا معروفة بالموثوقية والراحة والدقة في المواعيد، مما يضمن وصولك إلى وجهتك في الوقت المحدد دائمًا.",
-        icon: "reliable.png"
+        icon: Reliable
       },
       {
         heading: "أسعار معقولة",
         description: "بفضل أسعارنا التنافسية، تقدم Minute Taxi واحدة من الخدمات الأكثر اقتصادية دون المساس بالجودة.",
-        icon: "affordable.png"
+        icon: Affordable
       },
       {
         heading: "متاح على مدار الساعة",
         description: "سواء كان ذلك في الصباح الباكر أو في وقت متأخر من الليل، Minute Taxi متاح على مدار الساعة لراحتك.",
-        icon: "https://placehold.co/400"
+        icon: T247
       },
       {
         heading: "تطبيق سهل الاستخدام",
         description: "واجهة التطبيق السهلة تجعل حجز الرحلات، تتبع السائقين، وإجراء المدفوعات الآمنة أمرًا سهلاً.",
-        icon: "https://placehold.co/400"
+        icon: UserF
       },
       {
         heading: "السلامة أولاً",
         description: "السلامة هي أولويتنا القصوى، مع سائقيين تم فحص خلفياتهم، وسيارات معقمة، ودعم على مدار الساعة.",
-        icon: "https://placehold.co/400"
+        icon: Safety
+      }
+    ],
+    testimonials: [
+      {
+        name: "حارث",
+        content: "Minute Taxi هو الأفضل! لم أجد تجربة أكثر موثوقية مع أي خدمة تاكسي أخرى. التطبيق يجعل كل شيء سلسًا وسريعًا!",
+        image: "https://placehold.co/800"
+      },
+      {
+        name: "يحيى",
+        content: "أسعار معقولة وخدمة رائعة! السائقون ودودون، والرحلات مريحة، وأشعر بالأمان في كل مرة أحجز فيها تاكسي Minute.",
+        image: "https://placehold.co/800"
+      },
+      {
+        name: "فوزي الشرف",
+        content: "التوفر على مدار الساعة أمر رائع! غالبًا ما أحتاج إلى رحلات في أوقات غريبة، و Minute Taxi دائمًا موجود من أجلي.",
+        image: "https://placehold.co/800"
       }
     ],
     testimonials: [
@@ -111,12 +133,6 @@ const Services = () => {
   return (
     <div
       className="services-page"
-      style={{
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg width="300" height="300" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"><g transform="translate(75, 75)"><circle r="70" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="55" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="40, 8" stroke-linecap="round" /><circle r="40" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="20, 10" stroke-linecap="round" /><circle r="25" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="80, 10" stroke-linecap="round" /><circle r="10" stroke="%234850a1" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /><circle r="0.1" stroke="%23f29d1e" stroke-width="5" fill="transparent" stroke-dasharray="10, 10" stroke-linecap="round" /></g></svg>')`,
-        backgroundSize: '200%', // Scale up to show only a part
-        backgroundPosition: 'top left', // Position at top left
-        backgroundRepeat: 'no-repeat',
-      }}
     >
       <div className="header-container">
         <h1>{currentContent.header}</h1>

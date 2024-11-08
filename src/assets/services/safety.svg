@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background -->
+    <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+
+    
+    <!-- Shield base -->
+    <path d="M60 60 L100 40 L140 60 V110 Q140 140 100 160 Q60 140 60 110 V60" 
+          fill="none" 
+          stroke="#4850a1" 
+          stroke-width="6"/>
+          
+    <!-- Inner shield detail -->
+    <path d="M70 65 L100 50 L130 65 V105 Q130 130 100 145 Q70 130 70 105 V65" 
+          fill="none" 
+          stroke="#f29d1e" 
+          stroke-width="2"
+          stroke-dasharray="4 2"/>
+          
+    <!-- Checkmark -->
+    <path d="M75 100 L95 120 L125 80" 
+          fill="none" 
+          stroke="#f29d1e" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+          
+    <!-- Safety stars/elements -->
+    <path d="M45 90 L50 95 L45 100" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M155 90 L150 95 L155 100" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M100 170 L105 175 L100 180" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Decorative elements -->
+    <circle cx="160" cy="60" r="4" fill="#f29d1e"/>
+    <circle cx="40" cy="60" r="4" fill="#f29d1e"/>
+    <circle cx="40" cy="140" r="4" fill="#f29d1e"/>
+    <circle cx="160" cy="140" r="4" fill="#f29d1e"/>
+    
+    <!-- Small connecting lines -->
+    <path d="M65 45 L75 55" stroke="#4850a1" stroke-width="2"/>
+    <path d="M135 45 L125 55" stroke="#4850a1" stroke-width="2"/>
+  </svg>

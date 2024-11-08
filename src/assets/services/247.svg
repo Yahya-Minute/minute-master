@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background elements -->
+    <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+
+    
+    <!-- Main clock face -->
+    <circle cx="100" cy="100" r="60" fill="none" stroke="#4850a1" stroke-width="6"/>
+    
+    <!-- Hour markers -->
+    <g stroke="#f29d1e" stroke-width="3">
+      <line x1="100" y1="45" x2="100" y2="55" />
+      <line x1="155" y1="100" x2="145" y2="100" />
+      <line x1="100" y1="155" x2="100" y2="145" />
+      <line x1="45" y1="100" x2="55" y2="100" />
+      <!-- Diagonal markers -->
+      <line x1="134" y1="66" x2="127" y2="73" transform="rotate(0 100 100)" />
+      <line x1="134" y1="134" x2="127" y2="127" transform="rotate(0 100 100)" />
+      <line x1="66" y1="134" x2="73" y2="127" transform="rotate(0 100 100)" />
+      <line x1="66" y1="66" x2="73" y2="73" transform="rotate(0 100 100)" />
+    </g>
+    
+    <!-- Clock hands -->
+    <line x1="100" y1="100" x2="100" y2="60" stroke="#4850a1" stroke-width="6" stroke-linecap="round"/>
+    <line x1="100" y1="100" x2="130" y2="100" stroke="#f29d1e" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="100" cy="100" r="8" fill="#4850a1"/>
+    
+    <!-- 24/7 text -->
+    <text x="100" y="140" fill="#f29d1e" font-family="Arial" font-weight="bold" font-size="24" text-anchor="middle">24/7</text>
+    
+    <!-- Decorative elements -->
+    <path d="M40 70 L45 75 L40 80" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M160 120 L155 125 L160 130" stroke="#f29d1e" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="45" cy="140" r="4" fill="#f29d1e"/>
+    <circle cx="155" cy="60" r="4" fill="#f29d1e"/>
+  </svg>

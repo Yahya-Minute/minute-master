@@ -1,45 +1,38 @@
 /* Footer container */
 .footer-container {
-    overflow-x: hidden;
-    background-color: #f5f5fa;
+    position: relative;
     padding: 2rem 1rem;
     color: #333;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-.rtl .footer-container, .rtl .footer-content{
-    flex-direction: row-reverse;
-}
-.loc-min{
-    flex-direction: start;
-    display: flex ;
-    flex-direction: column;
-    p{
-        align-items: center;
-        display: flex;
-    }
-}
-.rtl .loc-min{
-    flex-direction: end;
-    display: flex ;
-    flex-direction: column;
-    p{
-        align-items: center;
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 20px;
-    }
+/* Background image overlay layer */
+.footer-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../../assets/footer/footer-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay; /* Adds a dark overlay for readability */
+    z-index: -1; /* Keeps it behind the content */
 }
 
+/* Footer content (stays above background) */
 .footer-content {
     display: flex;
     justify-content: start;
     max-width: 1200px;
     margin: 0 auto;
     gap: 1rem;
-    
+    position: relative; /* Ensures content is above background */
+    z-index: 1; /* Stacks above background */
 }
 
+/* Individual sections and text */
 .footer-section {
     flex: 1;
     min-width: 200px;
@@ -54,81 +47,47 @@
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: #333;
+    
 }
 
 .footer-section p {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
-    color:var(--light-orange);
+    color: #333;
     line-height: 1.5;
 }
 
 .footer-section a {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--gradient-blue); /* Initial blue color */
-    margin-bottom: 0.5rem;
-    color:var(--light-orange);
+    
+    color: #333;
+
     text-decoration: none;
 }
 
-.footer-section a:hover {
-    text-decoration: underline;
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 24px;  /* Set icon size to 24px */
-    margin-top: 1rem;
-}
-.rtl .social-icons{
-    flex-direction: row-reverse;
-}
-
-.social-icons svg {
-    color: var(--light-orange); /* Initial blue color */
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icons svg:hover {
-    color: #1f35ff; /* Darker blue on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
-
-/* Footer bottom */
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
     border-top: 1px solid #ddd;
     font-size: 0.85rem;
-    color: #666;
+    color: #333;
     margin-top: 2rem;
 }
-
-.footer-content p svg {
-    margin-right: 0.5rem;
-    background-color: black;
-    padding: 20px;
-    border-radius: 50px;
-    color: var(--light-orange); /* Initial blue color */
-    transition: background-color 0.3s ease-in-out;
-    &hover{
-        background-color: #333;
-    }
+/* SVG Icon Style */
+.footer-social-icon {
+    font-size: 1.5rem; /* Adjusts the icon size */
+    color: #333; /* Matches text color */
+    margin-right: 0.5rem; /* Space between icons */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-section {
-        margin-bottom: 1.5rem;
-    }
+.footer-social-icon:hover {
+    color: #555; /* Slightly darker color on hover */
 }
+
+/* Social icons container */
+.social-icons {
+    display: flex;
+    gap: 0.5rem; /* Space between each icon */
+    margin-top: 1rem;
+}
+

@@ -1,7 +1,6 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-import { FaWhatsapp, FaTwitter, FaInstagram, FaLinkedin, FaApple } from 'react-icons/fa';
-import Logo from '../../../assets/logo/logo.png';  // Replace with the path to your logo
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaTwitter, FaInstagram, FaLinkedin, FaApple } from 'react-icons/fa';
+import Logo from '../../../assets/logo/logo.png';  // Adjust path to your logo
 import './footer.css';
 
 const footer_content = {
@@ -40,18 +39,20 @@ const Footer = ({ language = "en" }) => {
 
   return (
     <div className="footer-container">
+      {/* Background overlay */}
+      <div className="footer-background-overlay"></div>
+      
       <div className="footer-content">
-        
         {/* Logo and Description */}
         <div className="footer-section">
           <img src={Logo} alt="Minute Logo" className="footer-logo" />
           <p>{content.summary[0]}</p>
           <div className="social-icons">
-            <FaWhatsapp />
-            <FaTwitter />
-            <FaInstagram />
-            <FaLinkedin />
-            <FaApple />
+            <FaWhatsapp className="footer-social-icon" />
+            <FaTwitter className="footer-social-icon" />
+            <FaInstagram className="footer-social-icon" />
+            <FaLinkedin className="footer-social-icon" />
+            <FaApple className="footer-social-icon" />
           </div>
         </div>
         
@@ -59,9 +60,9 @@ const Footer = ({ language = "en" }) => {
         <div className="footer-section">
           <h3>{language === 'en' ? 'Connect With Us' : 'تواصل معنا'}</h3>
           <div className='loc-min'>
-            <p><FaMapMarkerAlt /> {content.connectwithus[0]}</p>
-            <p><FaPhoneAlt /> {content.connectwithus[1]}</p>
-            <p><FaEnvelope /> {content.connectwithus[2]}</p>
+            <p><FaMapMarkerAlt className="footer-social-icon" /> {content.connectwithus[0]}</p>
+            <p><FaPhoneAlt className="footer-social-icon" /> {content.connectwithus[1]}</p>
+            <p><FaEnvelope className="footer-social-icon" /> {content.connectwithus[2]}</p>
           </div>
         </div>
 
